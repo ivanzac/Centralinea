@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="css/icon.css" rel="stylesheet">
+	   <link href="css/style.css" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+	  <link rel="stylesheet" type="text/css" href="css/flaticon.css">
+
+       <!--Let browser know website is optimized for mobile-->
+		<meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
+	    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"/>
+		
+        <title>Centralina</title>
+</head>
+
+    <body>
+
+  
+<div class="navbar-fixed">
+    <nav>
+     <div class="nav-wrapper light-blue darken-1">
+        <a href="#!" class="brand-logo">Centralina</a>
+
+		<ul id="slide-out" class="side-nav">
+		
+		<li class="active light-blue darken-1 center">
+
+			<h5 class="name_nav white-text center" id="profile">Profile</h5>
+			
+		</li>
+		
+		<li>
+			<a href="index.html" >			
+				<div class="menu_icon flaticon-power43"></div>
+				<span class="name_nav">Atuadores</span>
+			</a>
+		</li>
+		
+		<li>
+			<a href="alarme.html">
+				<div class="menu_icon flaticon-police22"></div>
+				<span class="name_nav">Alarme</span>
+			</a>
+		</li>
+		
+		<li>
+			<a href="config.html">
+				<div class="menu_icon flaticon-settings48"></div>
+				<span class="name_nav">Configurações</span>
+			</a>
+		</li>
+
+		<li class="active gray lighten-2 ">		
+			<a  href="#">
+				<div class="menu_icon flaticon-temperature10"></div>
+				<span class="name_nav">Sensores</span>
+			</a>
+		</li>
+		
+		<li>		
+			<a href="agendamento.html">
+				<div class="menu_icon flaticon-clock130"></div>
+				<span class="name_nav">Agendamento</span>
+			</a>
+		</li>
+
+
+  </ul>
+  <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+   <div class="progress">
+      <div id="bar" ></div>
+	</div>
+      </div>
+    </nav>
+  </div>
+<div class="section center white">
+	<div class="row">
+		<div class="square green lighten-2 col s5">
+			<h3 id="temp" class="white-text">0 <i class="flaticon-temperature10 "></i></h3>			 
+			<div class="tag_box ">Temperatura</div>
+		</div>
+
+		<div class="square red lighten-2 col s5">
+			<h3 id="umi" class="white-text">0 %</h3>
+			<div class="tag_box ">Umidade</div>
+		</div>
+		
+		<div class="square yellow lighten-2 col s5">
+			<h3 id="temp1" class="white-text">0 C</h3>			
+			<div class="tag_box ">Temperatura 1</div>
+		</div>
+		
+		<div class="square amber darken-4 col s5">
+			<h3 id="temp2" class="white-text">0 C</h3>			
+			<div class="tag_box ">Temperatura 2</div>
+		</div>
+		
+		<div class="square blue lighten-2 col s5">
+			<h4 id="ene_dia" class="white-text">0 kw</h4>	
+			<p>
+			<span class="ener_graf">Loading..</span>
+			</p>
+			<div class="tag_box ">Consumo Energia</div>			
+		</div>
+		
+		<div class="square deep-purple darken-3 col s5">
+			<h4 id="agua_dia" class="white-text">0 m<sup>3</sup></h4>
+			<p>
+			<span class="agua_graf">Loading..</span>
+			</p>
+			<div class="tag_box ">Consumo água</div>
+			
+		</div>
+
+  </div>  
+</div>
+<!--Modal extructure -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+      <h5>Atenção</h5>
+      <p>Não foi possivel encontrar o endereço da central.</p>
+	  <p>Vá em configurações e altere o ip da central ou verifique sua conexão de internet.</p>
+    </div>
+    <div class="modal-footer">
+	  <a href="config.html" class=" modal-action modal-close waves-effect waves-green btn-flat">Configurar</a>
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" onClick="window.location.reload()">Recarregar</a>
+    </div>
+  </div>
+</div>
+
+      <script type="text/javascript" src="cordova.js"></script>
+	  <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	  <script type="text/javascript" src="js/jquery.sparkline.min.js"></script>
+      <script type="text/javascript" src="js/materialize.js"></script>
+	  
+	  <script type="text/javascript">
+//Descomentar quando for compilar
+
+var url = '';
+var chave = '';	
+var stop = true;
+
+// Initialize collapse button
+  $(".button-collapse").sideNav();
+
+ 
+//Função que pega o estado dos contatos secos e atera cor icone e estado.
+
+function getTemp(){
+   
+	$.ajax({
+	method: "POST",
+	dataType: "json",
+	url: "http://"+url+"/dash/m_api.php",
+	timeout: 8000,
+	data: { chave: chave ,comando: "up"}
+	})
+	.done(function( requestArray ) {	
+		console.log(requestArray);
+		$("#temp").html(requestArray.temp+'<i class="flaticon-thermometer33 "></i>');
+		$("#umi").text(requestArray.umi);
+		$("#temp1").html(requestArray.ds1820_1+'<i class="flaticon-thermometer33 "></i>');
+		$("#temp2").html(requestArray.ds1820_2+'<i class="flaticon-thermometer33 "></i>');
+		
+	})
+	.fail(function (jqXHR,status,err) {
+		$('#modal1').openModal({
+			dismissible: false,			
+			});
+		});
+		
+} 
+
+function graf_bar(myvalues,boxname){
+ 
+		 $(boxname).sparkline(myvalues, {
+			    type: 'bar',			   
+				barWidth: '8',
+				barSpacing: '2',
+			    barColor: '#ffffff',
+			    negBarColor: '#eeeeee',
+				disableInteraction: 'true'
+				});	
+
+}
+
+
+//Faz requisição no banco de dados referente ao consumo de agua e mostra nos displays do cabeçalho da dasboard
+function getGrafTop(){     
+	//var requestArray = httpGet("up","graf_top.php");
+		$.ajax({
+				method: "POST",
+				dataType: "json",
+				url: "http://"+url+"/dash/graf_top.php",
+				timeout: 8000,
+				data: { comando: "up"}
+				})
+			.done(function( requestArray ) {
+			
+				//Mostra os numero decimal do ultimo valor da tabela ado banco.
+				$("#agua_dia").html(requestArray.t_agua_dia0+'<i>L</i>'); //Esse cara aqui altera o numero mostrado no display Roxo essa tag HTML tem que ser reescrita toda vez para não perder o icone
+	
+				$("#ene_dia").html(requestArray.kwh_dia0+'<i>Kw</i>');
+
+				//Preenche o grafico de consumo de agua diario
+				var arr_graf = [requestArray.t_agua_dia6 , requestArray.t_agua_dia5 , requestArray.t_agua_dia4 , requestArray.t_agua_dia3 , requestArray.t_agua_dia2 , requestArray.t_agua_dia1 , requestArray.t_agua_dia0, "0"];
+				graf_bar(arr_graf,".agua_graf");
+	
+				//Preenche o grafico de consumo de energia diario;
+				var arr_graf = [requestArray.kwh_dia6 , requestArray.kwh_dia5 , requestArray.kwh_dia4 , requestArray.kwh_dia3 , requestArray.kwh_dia2 , requestArray.kwh_dia1 , requestArray.kwh_dia0, "0"];
+				graf_bar(arr_graf,".ener_graf");
+				$("#bar").removeClass('indeterminate');		
+	
+			}).fail(function (jqXHR,status,err) {
+					$('#modal1').openModal({
+						dismissible: false,			
+					});			
+					
+					stop = false;
+				});	
+} 
+
+//Fecha o aplicativo se clicar em voltar
+function onBackKeyDown() 
+{
+ window.location.href = "index.html";
+}
+
+document.addEventListener("deviceready", onDeviceReady, false);
+			
+function onDeviceReady() {
+	document.addEventListener("backbutton", onBackKeyDown, false);
+	Materialize.toast("Sensores", 1000);
+	$("#bar").addClass('indeterminate');
+	url = window.localStorage.getItem("ip");
+	chave = window.localStorage.getItem("chave");
+	$("#profile").text(window.localStorage.getItem("nome"));
+	$('#ip').val(url);
+	$('#password').val(chave);
+    getTemp();
+	getGrafTop();
+	
+				
+}
+
+setInterval(function(){ 
+ if(stop == true){
+	getTemp();
+	getGrafTop();
+	}
+}, 10000);
+ 
+	</script>
+	
+	
+</body>
+</html>

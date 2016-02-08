@@ -1,0 +1,438 @@
+﻿<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="css/icon.css" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+	   <link href="css/style.css" rel="stylesheet">
+	  <link rel="stylesheet" type="text/css" href="css/flaticon.css">
+
+      
+      <!--Let browser know website is optimized for mobile-->
+		<meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
+	    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"/>
+		
+        <title>Centralina</title>
+    
+    </head>
+
+<body>   
+
+
+<div class="navbar-fixed">
+    <nav>
+     <div class="nav-wrapper light-blue darken-1">
+        <a href="#!" class="brand-logo">Centralina</a>
+		<ul class="right">			
+				<li><a href="#" onclick="sync_buttons()" class="brand-logo flaticon-smartphone11 small_icon right"></a></li>
+		</ul>
+		<ul id="slide-out" class="side-nav">
+		
+		<li class="active light-blue darken-1 center">
+
+			<h5 class="name_nav white-text center" id="profile">Profile</h5>
+			
+		</li>
+		
+		<li>
+			<a href="index.html" >			
+				<div class="menu_icon flaticon-power43"></div>
+				<span class="name_nav">Atuadores</span>
+			</a>
+		</li>
+		
+		<li>
+			<a href="alarme.html">
+				<div class="menu_icon flaticon-police22"></div>
+				<span class="name_nav">Alarme</span>
+			</a>
+		</li>
+		
+		<li class="active gray lighten-2 ">
+			<a href="#">
+				<div class="menu_icon flaticon-settings48"></div>
+				<span class="name_nav">Configurações</span>
+			</a>
+		</li>
+
+		<li>		
+			<a  href="sensor.html">
+				<div class="menu_icon flaticon-temperature10"></div>
+				<span class="name_nav">Sensores</span>
+			</a>
+		</li>
+		
+		<li>		
+			<a href="agendamento.html">
+				<div class="menu_icon flaticon-clock130"></div>
+				<span class="name_nav">Agendamento</span>
+			</a>
+		</li>
+
+		
+
+	
+
+  </ul>
+  <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+   <div class="progress">
+      <div id="bar" ></div>
+	</div>
+      </div>
+    </nav>
+  </div>	
+
+<div class="divider"></div>
+	<div class="section">
+		<h5>Notificações:</h5>		
+			<div class="row">
+				<div class="col s6">
+					<p>Ligar notificações:</p>
+				</div>
+			<div class="col s6 ">
+				<div class="switch right">			
+					<label>
+						off
+						<input id="cb_1" type="checkbox">
+						<span class="lever"></span>
+						on 
+					</label>			
+				</div>	
+			</div>
+			</div>		
+		</div>
+<div class="divider"></div>
+
+
+<div class="section white">
+<div class="row">
+	 <h5>Configurações:</h5> 		
+      <div class="row">
+        <div class="input-field col s12">
+		  <i class="prefix linha flaticon-settings48 grey-text"></i>
+          <input placeholder="192.168.1.35:80" id="ip" type="text" class="validate">
+		  <div class="center red-text darken-3"><span id="input_ip"></span></div>
+          <label for="first_name">Endereço IP</label>
+        </div>
+	  </div>
+     
+     <div class="row">
+        <div class="input-field col s12">
+		  <i class="prefix linha flaticon-motel grey-text"></i>
+          <input  id="password" type="password" placeholder="*******"  class="validate">
+		  <div class="center red-text darken-3"><span id="input_chave"></span></div>
+          <label for="first_name">Chave de acesso</label>
+        </div>
+	  </div>
+	  
+	  <div class="row">
+        <div class="input-field col s12">
+		   <i class="prefix linha flaticon-garage3 grey-text"></i>
+          <input placeholder="Nome Portão 1" id="rl_1" type="text" class="validate" length="15">
+		  <div class="center red-text darken-3"><span id="input_rl1"></span></div>
+          <label for="first_name">Rele 1</label>
+        </div>
+	  </div>
+	  
+	  <div class="row">
+        <div class="input-field col s12">
+		   <i class="prefix linha flaticon-garage3 grey-text"></i>
+          <input placeholder="Nome Portão 2" id="rl_2" type="text" class="validate" length="15">
+		  <div class="center red-text darken-3"><span id="input_rl2"></span></div>
+          <label for="first_name">Rele 2</label>
+        </div>
+	  </div>
+	  
+	  <div class="row">
+        <div class="input-field col s12">
+		  <i class="prefix linha flaticon-users81 grey-text"></i>
+          <input placeholder="apelido"  id="input_apelido" type="text" class="validate">		  
+          <label for="first_name">Nome</label>		  
+        </div>
+	  </div>
+	
+	
+    <div class="center-align">
+	  <button class="btn-large blue waves-effect waves-light bt_grande" onclick="salvar()">Salvar</button>	  
+	
+	</div>	
+	
+  </div>
+    <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h5>Atenção!</h5>
+      <p>Salvo com sucesso!!</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Ok</a>
+    </div>
+  </div>
+  
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <h5>Atenção</h5>
+      <p>Não foi possivel encontrar o endereço da central.</p>
+	  <p>Vá em configurações e altere o ip da central ou verifique sua conexão de internet.</p>
+    </div>
+    <div class="modal-footer">
+	 
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" onClick="window.location.reload()">Recarregar</a>
+    </div>
+	</div>
+	
+	<div id="modal3" class="modal">
+    <div class="modal-content">
+      <h5>Atenção</h5>
+      <p>Sincronizado com Sucesso!</p>
+	  
+    </div>
+    <div class="modal-footer">
+	 
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
+    </div>
+	</div>
+  
+</div>
+
+	<script type="text/javascript" src="cordova.js"></script>  
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+	<script type="text/javascript">
+//Descomentar quando for compilar
+
+var url =  window.localStorage.getItem("ip");
+var chave = window.localStorage.getItem("chave");
+var rl_1 = '';
+var rl_2 = '';
+var nome = '';
+
+
+
+function push_event(ativado){
+	
+	var apelido = $('#input_apelido').val();
+	var push = PushNotification.init({
+            "android": {
+                "senderID": "968042582766"
+            },
+            "ios": {"alert": "true", "badge": "true", "sound": "true"}, 
+            "windows": {} 
+        });
+        
+       
+
+	push.on('notification', function(data) {
+        console.log("notification event");
+        console.log(JSON.stringify(data));
+        Materialize.toast(data.message, 1000);
+			
+			push.finish(function () {
+				console.log('finish successfully called');
+            });
+        });
+
+    push.on('error', function(e) {
+            console.log("push error");
+        });
+
+		
+	push.on('registration', function(data) {
+            //document.getElementById("regId").innerHTML = data.registrationId;
+			$("#regId").text(data.registrationId);           
+			$.ajax({
+				method: "POST",				
+				timeout: 8000,
+				dataType: "json",
+				url: "http://"+url+"/dash/push_save.php",
+				data: { uuid: device.uuid, alias: apelido, reg_id: data.registrationId, os_device: '1', ativado: ativado}
+				})
+			.done(function( requestArray ) {
+				Materialize.toast(requestArray.status, 1000);
+				window.localStorage.setItem("cb", ativado);
+			
+			}).fail(function (jqXHR,status,err) {
+				Materialize.toast("Falhou", 1000);
+					
+				});
+        });
+
+
+   
+}
+
+$(":checkbox").change(function() {
+var cb1;
+	if($("#cb_1").is(':checked')){	 
+	 cb1='1';
+    }else{
+     cb1='0';
+    }
+	
+
+	
+
+
+  push_event(cb1);
+});
+
+//Fecha o aplicativo se clicar em voltar
+function onBackKeyDown() 
+{
+ window.location.href = "index.html";
+}
+
+
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {	
+		document.addEventListener("backbutton", onBackKeyDown, false);
+		$("#bar").addClass('indeterminate');
+        url = window.localStorage.getItem("ip");
+		chave = window.localStorage.getItem("chave");
+		rl_1 = window.localStorage.getItem("rl_1");
+		rl_2 = window.localStorage.getItem("rl_2");
+		nome = window.localStorage.getItem("nome");
+		cb_m = window.localStorage.getItem("cb");
+		
+		//Sincroniza o botão pra saber se o push está habilitado ou não
+		if(cb_m == "1")	{				
+				$( "#cb_1" ).prop( "checked", true );
+            		
+			}	else{				
+				$( "#cb_1" ).prop( "checked", false );
+			}
+		$('#ip').val(url);
+		$('#password').val(chave);
+		$('#rl_1').val(rl_1);
+		$('#rl_2').val(rl_2);
+		$('#input_apelido').val(nome);
+		$('#profile').text(nome);
+		$("#bar").removeClass('indeterminate');
+ }
+
+
+ 
+function sync_buttons(){
+	 $("#bar").addClass('indeterminate');
+	 var url = window.localStorage.getItem("ip");
+	 var nomes = [];
+
+	$.ajax({
+				method: "GET",
+				dataType: "json",
+				timeout: 8000,
+				url: "http://"+url+"/dash/php/atuadores/bt_conf.php"
+				})
+			.done(function( requestArray ) {
+			
+			//var jsontext = '{"rele3":"'+requestArray.rele3+'","rele4":"'+requestArray.rele4+'","rele5":"'+requestArray.rele5+'","rele6":"'+requestArray.rele6+'","rele7":"'+requestArray.rele7+'","rele8":"'+requestArray.rele8+'","rele9":"'+requestArray.rele9+'","rele10":"'+requestArray.rele10+'","rele11":"'+requestArray.rele11+'","rele12":"'+requestArray.rele12+'","rele13":"'+requestArray.rele13+'","rele14":"'+requestArray.rele14+'"}';
+			var jsontext = JSON.stringify(requestArray);
+			//console.log(contact);
+			window.localStorage.setItem('n_reles', jsontext );
+			$('#modal3').openModal({
+						dismissible: false,
+			
+					});
+			$("#bar").removeClass('indeterminate');
+			
+			}).fail(function (jqXHR,status,err) {
+					$('#modal2').openModal({
+						dismissible: false,
+			
+					});
+					
+				});
+
+
+}
+
+
+	
+function salvar(){
+
+	Materialize.toast("Configurações", 1000);
+	$("#bar").addClass('indeterminate');
+	var ip = $('#ip').val();
+	var chave = $('#password').val();
+	var rl_1 = $('#rl_1').val();
+	var rl_2 = $('#rl_2').val();
+	var apelido = $('#input_apelido').val();
+	var valido = true;
+	console.log(chave);
+	ip = ip.replace(/ /g,'');
+	
+	if (ip.search( 'http' ) >= 0){
+		$("#input_ip").text("Não é preciso colocar http://");
+		 valido = false;
+	} else{
+		$("#input_ip").text("");
+		
+	}
+	
+	if (ip == "" || ip == null){
+		$("#input_ip").text("Esse campo não pode estar vazio");
+		 valido = false;
+	} else{
+		$("#input_ip").text("");
+		
+	}
+	
+	if(chave == ""){
+		$("#input_chave").text("Esse campo não pode estar vazio");
+		valido = false;	
+	} else{
+		$("#input_chave").text("");		
+	}
+	
+	if (rl_1.length > 15 || rl_1 == ""){
+		$("#input_rl1").text("Nome Invalido ou muito grande");
+		valido = false;	
+	}else{
+		$("#input_rl1").text("");		
+	}
+	
+	if (rl_2.length > 15 || rl_2 == ""){
+		$("#input_rl2").text("Nome Invalido ou muito grande");
+		valido = false;	
+	}else{
+		$("#input_rl2").text("");		
+	}
+
+	if(valido == false){
+		$("#bar").removeClass('indeterminate');
+	}
+	
+	if(valido == true){	
+	
+	window.localStorage.setItem("ip", ip);
+	window.localStorage.setItem("chave", chave);
+	window.localStorage.setItem("rl_1", rl_1);
+	window.localStorage.setItem("rl_2", rl_2);
+	window.localStorage.setItem("nome", apelido);
+    //console.log(ip+" "+chave);
+	//alert("Salvo com sucesso");
+	$('#modal1').openModal({
+		dismissible: false,			
+	 });
+	$("#bar").removeClass('indeterminate');
+	
+	
+	}
+}	
+	
+
+  
+  
+   // Initialize collapse button
+  $(".button-collapse").sideNav();
+  // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+  //$('.collapsible').collapsible();
+  
+	</script>		
+    </body>
+  </html>

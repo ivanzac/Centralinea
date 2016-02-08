@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="css/icon.css" rel="stylesheet">
+	   <link href="css/style.css" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+	  <link rel="stylesheet" type="text/css" href="css/flaticon.css">
+
+
+      <!--Let browser know website is optimized for mobile-->
+		<meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
+	    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"/>
+		<title>Centralina</title>
+      
+    
+    </head>
+
+<body>     
+
+
+<div class="navbar-fixed">
+    <nav>
+     <div class="nav-wrapper light-blue darken-1">
+        <a href="#!" class="brand-logo">Centralina</a>
+		<ul class="right">
+			<li><a href="historico.html"  class="brand-logo flaticon-history2  small_icon right"></a></li>			
+		</ul>
+		<ul id="slide-out" class="side-nav">
+		
+		<li class="active light-blue darken-1 center">
+
+			<h5 class="name_nav white-text center" id="profile">Profile</h5>
+			
+		</li>
+		
+		<li>
+			<a href="index.html" >			
+				<div class="menu_icon flaticon-power43"></div>
+				<span class="name_nav">Atuadores</span>
+			</a>
+		</li>
+		
+		<li  class="active gray lighten-2 ">
+			<a href="#">
+				<div class="menu_icon flaticon-police22"></div>
+				<span class="name_nav">Alarme</span>
+			</a>
+		</li>
+		
+		<li>
+			<a href="config.html">
+				<div class="menu_icon flaticon-settings48"></div>
+				<span class="name_nav">Configurações</span>
+			</a>
+		</li>
+
+		<li>		
+			<a  href="sensor.html">
+				<div class="menu_icon flaticon-temperature10"></div>
+				<span class="name_nav">Sensores</span>
+			</a>
+		</li>
+		
+		<li>		
+			<a href="agendamento.html">
+				<div class="menu_icon flaticon-clock130"></div>
+				<span class="name_nav">Agendamento</span>
+			</a>
+		</li>
+
+		
+
+	
+
+  </ul>
+  <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+   <div class="progress">
+      <div id="bar" ></div>
+	</div>
+      </div>
+    </nav>
+  </div>	
+	  
+
+<div class="section white">
+
+
+<div class="row">
+    
+      <div class="row">
+        <div class="input-field col s12">
+		  <i class="prefix linha flaticon-security61 grey-text"></i>
+          <input placeholder="Digite sua senha"  id="pass" type="tel"  class="validate password-field">
+          <div class="center red-text darken-3"><span id="display"></span></div>
+        </div>
+	  </div>
+   
+  
+    <div class="center-align">
+	  <button class="btn waves-effect waves-light deep-orange bt_medio" onclick="alarme('desativar')"> Desativar</button>
+	
+	  <button class="btn waves-effect waves-light light-blue darken-4 flaticon-ssl bt_medio" onclick="alarme('ativar')">&nbsp&nbspAtivar</button>	
+	</div>	 
+  </div>
+  
+	<ul id="ul_sensores" class="collection with-header">
+        <li class="collection-header"><h5 class="center">Sensores Alarme</h5></li>       
+    </ul>
+            
+
+</div>
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+      <h5>Atenção</h5>
+     <p>Não foi possivel encontrar o endereço da central.</p>
+	  <p>Vá em configurações e altere o ip da central ou verifique sua conexão de internet.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="config.html" class=" modal-action modal-close waves-effect waves-green btn-flat">Configurar</a>
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" onClick="window.location.reload()">Recarregar</a>
+    </div>
+ </div>
+
+	<script type="text/javascript" src="cordova.js"></script>   
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+	<script type="text/javascript" src="js/alarme.js"></script>
+	
+</body>
+</html>

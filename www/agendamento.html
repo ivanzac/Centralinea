@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="css/icon.css" rel="stylesheet">
+	  <link href="css/style.css" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+	  <link rel="stylesheet" type="text/css" href="css/flaticon.css">
+      
+      <!--Let browser know website is optimized for mobile-->
+		<meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
+	    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"/>
+		
+		 <title>Centralina</title>    
+    </head>
+
+<body>   
+
+<div class="navbar-fixed">
+    <nav>
+     <div class="nav-wrapper light-blue darken-1">
+        <a href="#!" class="brand-logo">Centralina</a>
+
+		<ul id="slide-out" class="side-nav">
+		
+		<li class="active light-blue darken-1 center">
+
+			<h5 class="name_nav white-text center" id="profile">Profile</h5>
+			
+		</li>
+		
+		<li>
+			<a href="index.html" >			
+				<div class="menu_icon flaticon-power43"></div>
+				<span class="name_nav">Atuadores</span>
+			</a>
+		</li>
+		
+		<li>
+			<a href="alarme.html">
+				<div class="menu_icon flaticon-police22"></div>
+				<span class="name_nav">Alarme</span>
+			</a>
+		</li>
+		
+		<li>
+			<a href="config.html">
+				<div class="menu_icon flaticon-settings48"></div>
+				<span class="name_nav">Configurações</span>
+			</a>
+		</li>
+
+		<li>		
+			<a  href="sensor.html">
+				<div class="menu_icon flaticon-temperature10"></div>
+				<span class="name_nav">Sensores</span>
+			</a>
+		</li>
+		
+		<li   class="active gray lighten-2 ">		
+			<a href="#">
+				<div class="menu_icon flaticon-clock130"></div>
+				<span class="name_nav">Agendamento</span>
+			</a>
+		</li>
+
+</ul>
+  <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+   <div class="progress">
+      <div id="bar" ></div>
+	</div>
+      </div>
+    </nav>
+  </div>
+
+
+
+<div class="section white">
+<div class="container">
+ 
+<div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s3"><a class="active"href="#test1">Unico</a></li>
+        <li class="tab col s3"><a href="#test2">Diario</a></li>
+		<li class="tab col s3"><a href="#test3">Consultar</a></li>
+      </ul>
+    </div>
+	<!--Tabela evento unico-->
+    <div id="test1" class="col s12">
+		<div class="row">
+			<div class="input-field col s12">
+				<span>Nome<span>
+				<input name="nome_uni" type="text" length="15"> 
+				<div class="center red-text darken-3"><span id="name_uni"></span></div>
+			</div>
+			<div class="input-field col s6">
+				<span>Data<span>				
+				<input  name="ag_uni_data" type="date" >
+				<div class="center red-text darken-3"><span id="date_uni"></span></div>
+			</div>
+			<div class="input-field col s6">
+				<span>Hora<span>
+				<input name="ag_uni_hora" type="time">
+				<div class="center red-text darken-3"><span id="time_uni"></span></div>
+			</div>
+		</div>
+		
+	<div class="input-field col s12">
+    <select id="select_uni">
+      <option selected>Selecione</option>
+      <option value="Rele1">Rele 1</option>
+      <option value="Rele2">Rele 2</option>
+      <option value="Rele3">Rele 3</option>
+	  <option value="Rele4">Rele 4</option>
+      <option value="Rele5">Rele 5</option>
+      <option value="Rele6">Rele 6</option>
+	  <option value="Rele7">Rele 7</option>
+      <option value="Rele8">Rele 8</option>
+      <option value="Rele9">Rele 9</option>
+	  <option value="Rele10">Rele 10</option>
+      <option value="Rele11">Rele 11</option>
+      <option value="Rele12">Rele 12</option>
+	  <option value="Rele13">Rele 13</option>
+      <option value="Rele14">Rele 14</option>
+   </select>
+    <label>Selecione uma Ação</label>
+	<div class="center red-text darken-3"><span id="rele_uni"></span></div>
+	</div>
+	<div class="center">
+	<a class="btn-large blue waves-effect waves-light bt_grande" onclick="agen_uni()">Agendar</a>	
+	</div>	
+	</div>
+	
+	<!--Tabela evento diario-->
+    <div id="test2" class="col s12">		
+		<div class="row">
+			<div class="input-field col s12">
+				<span>Nome<span>
+				<input name="nome_dia" type="text" length="15">
+				<div class="center red-text darken-3"><span id="name_dia"></span></div>
+			</div>
+			<div class="input-field col s6">
+				<span>Hora Inicio<span>
+				<input name="age_dia_ini" type="time" >
+				<div class="center red-text darken-3"><span id="hora_ini"></span></div>
+			</div>
+			<div class="input-field col s6">
+				<span>Hora Fim<span>
+				<input name="age_dia_fim" type="time">
+				<div class="center red-text darken-3"><span id="hora_fim"></span></div>
+        </div>
+		</div>
+		
+	<div class="input-field col s12">
+    <select id="select_horario">
+      <option value="" selected>Selecione</option>
+      <option value="1">Rele 1</option>
+      <option value="2">Rele 2</option>
+      <option value="3">Rele 3</option>
+	  <option value="1">Rele 4</option>
+      <option value="2">Rele 5</option>
+      <option value="3">Rele 6</option>
+	  <option value="1">Rele 7</option>
+      <option value="2">Rele 8</option>
+      <option value="3">Rele 9</option>
+	  <option value="1">Rele 10</option>
+      <option value="2">Rele 11</option>
+      <option value="3">Rele 12</option>
+	  <option value="2">Rele 13</option>
+      <option value="3">Rele 14</option>
+    </select>
+    <label>Selecione uma Ação</label>
+	<div class="center red-text darken-3"><span id="rele_dia"></span></div>
+	</div>
+	<div class="center">
+	<a class="btn-large blue waves-effect waves-light bt_grande" onclick="agen_diario()">Agendar</a>
+	</div>	
+	</div>
+	
+	<!--Tabela lista de agendamentos-->
+	<div id="test3" class="col s12">
+		<ul id="lista" class="collection">
+			
+			
+		</ul>
+	</div> 
+
+	  
+</div>
+</div>
+
+    <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h5>Atenção!</h5>
+      <p>Agendado com Sucesso</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Ok</a>
+    </div>
+  </div>
+  
+  	<!--Modal extructure -->
+	<div id="modal2" class="modal">
+    <div class="modal-content">
+      <h5>Atenção</h5>
+      <p>Não foi possivel encontrar o endereço da central.</p>
+	  <p>Vá em configurações e altere o ip da central ou verifique sua conexão de internet.</p>
+    </div>
+    <div class="modal-footer">
+	  <a href="config.html" class=" modal-action modal-close waves-effect waves-green btn-flat">Configurar</a>
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" onClick="window.location.reload()">Recarregar</a>
+    </div>
+	</div>
+  
+
+	<script type="text/javascript" src="cordova.js"></script>    
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript">
+//Descomentar quando for compilar
+$('select').material_select();
+var url = '';
+var chave = '';	
+
+//Fecha o aplicativo se clicar em voltar
+function onBackKeyDown() 
+{
+ window.location.href = "index.html";
+}
+     
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+		document.addEventListener("backbutton", onBackKeyDown, false);
+		Materialize.toast("Agendamento", 1000);
+		$("#bar").addClass('indeterminate');		
+        url = window.localStorage.getItem("ip");
+		chave = window.localStorage.getItem("chave");
+		$("#profile").text(window.localStorage.getItem("nome"));
+		$("#bar").removeClass('indeterminate');
+		consultar();
+ }
+
+ 
+//Agenda unico
+function agen_uni(){
+	
+	var nome = $( "input[name*='nome_uni']" ).val();
+    var data = $( "input[name*='ag_uni_data']" ).val();
+	var hora = $( "input[name*='ag_uni_hora']" ).val();
+	var rele = $( "#select_uni option:selected" ).text();
+	var data_new = data.replace(/-/g, "/");
+    var valido = true;
+	
+	if (nome.length > 15 || nome == ""){
+		$("#name_uni").text("*Nome Invalido ou muito grande");
+		valido = false;	
+	}else{
+		$("#name_uni").text("");		
+	}
+	
+	if (data == ""){
+		$("#date_uni").text("*Selecione uma data");
+		valido = false;	
+	}else{
+		$("#date_uni").text("");		
+	}
+	
+	if (hora == ""){
+		$("#time_uni").text("*Selecione um horario");
+		valido = false;	
+	}else{
+		$("#time_uni").text("");		
+	}
+	
+	if (rele == "Selecione"){
+		$("#rele_uni").text("*Selecione um rele");
+		valido = false;	
+	}else{
+		$("#rele_uni").text("");		
+	}
+
+    if(valido == true){	
+	$("#bar").addClass('indeterminate');
+	$.ajax({
+	method: "POST",	
+	url: "http://"+url+"/dash/php/agend/aplica_android.php",	
+	data: { comando: "agen_uni",chave: chave ,nome: nome, inicio: data_new+" "+hora, rele: rele}
+	})
+	.done(function( requestArray ) {	
+		$("#bar").removeClass('indeterminate');
+		$('#modal1').openModal();
+		consultar();
+	}).fail(function (jqXHR,status,err) {
+		$('#modal2').openModal({
+			dismissible: false,			
+		});
+					
+	});
+	
+	}
+} 
+//Agenda horario
+function agen_diario(){
+	
+	var nome = $( "input[name*='nome_dia']" ).val();
+    var inicio = $( "input[name*='age_dia_ini']" ).val();
+	var fim = $( "input[name*='age_dia_fim']" ).val();
+	var rele = $( "#select_horario option:selected" ).text();
+	var valido = true;
+	
+	if (nome.length > 15 || nome == ""){
+		$("#name_dia").text("*Nome Invalido ou muito grande");
+		valido = false;	
+	}else{
+		$("#name_dia").text("");		
+	}
+	
+	if (inicio == ""){
+		$("#hora_ini").text("*Selecione um horario");
+		valido = false;	
+	}else{
+		$("#hora_ini").text("");		
+	}
+	
+	if ( fim == ""){
+		$("#hora_fim").text("*Selecione um horario");
+		valido = false;	
+	}else{
+		$("#hora_fim").text("");		
+	}
+	
+	if (rele == "Selecione"){
+		$("#rele_dia").text("*Selecione um rele");
+		valido = false;	
+	}else{
+		$("#rele_dia").text("");		
+	}
+
+	if(valido == true){	
+	$("#bar").addClass('indeterminate');
+	
+	$.ajax({
+	method: "POST",	
+	timeout: 8000,
+	url: "http://"+url+"/dash/php/agend/aplica_android.php",	
+	data: { comando: "agen_hora",chave: chave ,nome: nome, inicio: inicio, fim: fim, rele: rele}
+	})
+	.done(function( requestArray ) {	
+		$("#bar").removeClass('indeterminate');
+		$('#modal1').openModal();
+		consultar();
+	}).fail(function (jqXHR,status,err) {
+		$('#modal2').openModal({
+			dismissible: false,			
+		});
+					
+		});
+	}
+}
+
+
+	
+function consultar(){
+	$('#lista li').remove();
+	$.ajax({
+	method: "POST",	
+	dataType: "json",
+	timeout: 8000,
+	url: "http://"+url+"/dash/php/agend/busca.php",		
+	})
+	.done(function( requestArray ) {
+		
+		for (i = 0; i <= requestArray.length -1; i++) {
+			$("#lista").append('<li class="collection-item">'+requestArray[i]+'</li>');
+			
+		}
+		
+		
+		$("#bar").removeClass('indeterminate');
+		
+	}).fail(function (jqXHR,status,err) {
+		$('#modal2').openModal({
+			dismissible: false,			
+		});
+					
+	});
+
+}
+	
+
+// Initialize collapse button
+$(".button-collapse").sideNav();
+
+  
+	</script>		
+    </body>
+  </html>

@@ -1,0 +1,377 @@
+ <!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="css/icon.css" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+	  <link href="css/style.css" rel="stylesheet">
+	  <link rel="stylesheet" type="text/css" href="css/flaticon.css">
+	
+
+      <!--Let browser know website is optimized for mobile-->
+		<meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
+	   <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"/>
+		
+        <title>Centralina</title>
+    
+    </head>
+
+<body>     
+
+
+ <div class="navbar-fixed">
+    <nav>
+     <div class="nav-wrapper light-blue darken-1">
+        <a href="#!" class="brand-logo">Centralina</a>
+	<ul class="right">			
+				<li><a href="#" onclick="sync_buttons()" class="brand-logo flaticon-smartphone11 small_icon right"></a></li>
+		</ul>
+		<ul id="slide-out" class="side-nav">
+		
+		<li class="active light-blue darken-1 center">
+
+			<h5 class="name_nav white-text center" id="profile">Profile</h5>
+			
+		</li>
+		
+		<li class="active gray lighten-2 ">
+			<a href="#" >
+				<div class="menu_icon flaticon-power43"></div>
+				<span class="name_nav">Atuadores</span>
+			</a>
+		</li>
+		
+		<li>
+			<a href="alarme.html">
+				<div class="menu_icon flaticon-police22"></div>
+				<span class="name_nav">Alarme</span>
+			</a>
+		</li>
+		
+		<li>
+			<a href="config.html">
+				<div class="menu_icon flaticon-settings48"></div>
+				<span class="name_nav">Configurações</span>
+			</a>
+		</li>
+
+		<li>		
+			<a  href="sensor.html">
+				<div class="menu_icon flaticon-temperature10"></div>
+				<span class="name_nav">Sensores</span>
+			</a>
+		</li>
+		
+		<li>		
+			<a href="agendamento.html">
+				<div class="menu_icon flaticon-clock130"></div>
+				<span class="name_nav">Agendamento</span>
+			</a>
+		</li>
+
+		
+	<li class="light-blue lighten-5">		
+		<div class="switch ">	
+			
+			<label>
+			A		
+			<input id="cb_1" value="Rele 1" type="checkbox" class="left">
+			<span class="lever"></span>
+			F
+			</label>
+			<span id="rl_1"class="black-text right">Rele 1</span>
+		</div>	
+	</li>
+	
+	<li class="light-blue lighten-5">		
+		<div class="switch ">			
+			<label>	
+			A
+			<input id="cb_2" value="Rele 2" type="checkbox">
+			<span class="lever"></span>	
+			F
+			</label>
+			<span id="rl_2"class=" black-text right">Rele 2</span>
+		</div>	
+	</li>
+	
+
+  </ul>
+  <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+   <div class="progress">
+      <div id="bar" ></div>
+	</div>
+      </div>
+    </nav>
+  </div>
+
+<div class="section white">
+
+	<div class="row">
+    <div class="col s12 m6 l3">
+	<div class="switch right-align">
+		<div id="cor_rele3" class="square_icon darken-1 left"><i id="icon_rele3" class="small_icon_box "></i></div>
+		<span id="n_rele3" class="name_relay left">Rele 3</span>
+		<label>
+		Off
+		<input id="cb_3" value="Rele 3" type="checkbox">
+		<span class="lever"></span>
+		On
+		</label>
+		</div> 
+		<p></p>
+	</div>
+    <div class="col s12 m6 l3">
+		<div class="switch right-align">
+		<div id="cor_rele4" class="square_icon darken-1 left"><i id="icon_rele4" class="small_icon_box "></i></div>
+		<span id="n_rele4" class="name_relay left">Rele 4</span>
+		<label>
+		Off
+		<input id="cb_4" value="Rele 4" type="checkbox">
+		<span class="lever"></span>
+		On
+		</label>
+		</div> 
+		<p></p>
+	</div>
+	
+    <div class="col s12 m6 l3">
+		<div class="switch right-align">
+		<div id="cor_rele5" class="square_icon darken-1 left"><i id="icon_rele5" class="small_icon_box "></i></div>
+		<span id="n_rele5" class="name_relay left">Rele 5</span>
+		<label>
+		Off
+		<input id="cb_5" value="Rele 5" type="checkbox">
+		<span class="lever"></span>
+		On
+		</label>
+		</div> 
+		<p></p>
+	</div>
+	
+	
+    <div class="col s12 m6 l3">
+		<div class="switch right-align">
+		<div id="cor_rele6" class="square_icon darken-1 left"><i id="icon_rele6" class="small_icon_box "></i></div>
+		<span id="n_rele6" class="name_relay left">Rele 6</span>
+		<label>
+		Off
+		<input id="cb_6" value="Rele 6" type="checkbox">
+		<span class="lever"></span>
+		On
+		</label>
+		</div> 
+		<p></p>
+	</div>
+	
+	<div class="col s12 m6 l3">
+		<div class="switch right-align">
+		<div id="cor_rele7" class="square_icon darken-1 left"><i id="icon_rele7" class="small_icon_box "></i></div>
+		<span id="n_rele7" class="name_relay left">Rele 7</span>
+		<label>
+		Off
+		<input id="cb_7" value="Rele 7" type="checkbox">
+		<span class="lever"></span>
+		On
+		</label>
+		</div> 
+		<p></p>
+	</div>
+	
+	<div class="col s12 m6 l3">
+		<div class="switch right-align">
+		<div id="cor_rele8" class="square_icon darken-1 left"><i id="icon_rele8" class="small_icon_box "></i></div>
+		<span id="n_rele8" class="name_relay left">Rele 8</span>
+		<label>
+		Off
+		<input id="cb_8" value="Rele 8" type="checkbox">
+		<span class="lever"></span>
+		On
+		</label>
+		</div>	
+		<p></p>
+	</div>
+	
+	<div class="col s12 m6 l3">
+		<div class="switch right-align">
+		<div id="cor_rele9" class="square_icon darken-1 left"><i id="icon_rele9" class="small_icon_box "></i></div>
+		<span id="n_rele9" class="name_relay left">Rele 9</span>
+		<label>
+		Off
+		<input id="cb_9" value="Rele 9" type="checkbox">
+		<span class="lever"></span>
+		On
+		</label>
+		</div>	
+		<p></p>
+	</div>
+	
+	<div class="col s12 m6 l3">
+		<div class="switch right-align">
+		<div id="cor_rele10" class="square_icon darken-1 left"><i id="icon_rele10" class="small_icon_box "></i></div>
+		<span id="n_rele10" class="name_relay left">Rele 10</span>
+		<label>
+		Off
+		<input id="cb_10" value="Rele 10" type="checkbox">
+		<span class="lever"></span>
+		On
+		</label>
+		</div>	
+		<p></p>
+	</div>
+	
+	<div class="col s12 m6 l3">
+		<div class="switch right-align">
+		<div id="cor_rele11" class="square_icon darken-1 left"><i id="icon_rele11" class="small_icon_box "></i></div>
+		<span id="n_rele11" class="name_relay left">Rele 11</span>
+		<label>
+		Off
+		<input id="cb_11" value="Rele 11" type="checkbox">
+		<span class="lever"></span>
+		On
+		</label>
+		</div>	
+		<p></p>
+	</div>
+	
+	<div class="col s12 m6 l3">
+		<div class="switch right-align">
+		<div id="cor_rele12" class="square_icon darken-1 left"><i id="icon_rele12" class="small_icon_box"></i></div>
+		<span id="n_rele12" class="name_relay left">Rele 12</span>
+		<label>
+		Off
+		<input id="cb_12" value="Rele 12" type="checkbox">
+		<span class="lever"></span>
+		On
+		</label>
+		</div>	
+		<p></p>
+	</div>
+	
+	<div class="col s12 m6 l3">
+		<div class="switch right-align">
+		<div id="cor_rele13" class="square_icon darken-1 left"><i id="icon_rele13" class="small_icon_box "></i></div>
+		<span id="n_rele13" class="name_relay left">Rele 13</span>
+		<label>
+		Off
+		<input id="cb_13" value="Rele 13" type="checkbox">
+		<span class="lever"></span>
+		On
+		</label>
+		</div>	
+		<p></p>
+	</div>
+	
+	<div class="col s12 m6 l3">
+		<div class="switch right-align">
+		<div id="cor_rele14" class="square_icon darken-1 left"><i id="icon_rele14" class="small_icon_box "></i></div>
+		<span id="n_rele14" class="name_relay left">Rele 14</span>
+		<label>
+		Off
+		<input id="cb_14" value="Rele 14" type="checkbox">
+		<span class="lever"></span>
+		On
+		</label>
+		</div> 	
+		<p></p>
+	</div>
+	</div>
+	
+	<!--Modal extructure -->
+	<div id="modal1" class="modal">
+    <div class="modal-content">
+      <h5>Atenção</h5>
+      <p>Não foi possivel encontrar o endereço da central.</p>
+	  <p>Vá em configurações e altere o ip da central ou verifique sua conexão de internet.</p>
+    </div>
+    <div class="modal-footer">
+	  <a href="config.html" class=" modal-action modal-close waves-effect waves-green btn-flat">Configurar</a>
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" onClick="window.location.reload()">Refresh</a>
+    </div>
+	</div>
+	
+	<!--Modal Portão -->
+	<div id="modal2" class="modal">
+    <div class="modal-content">
+      <h5>Atenção</h5>
+      <p>Confirma essa ação?</p>
+	 
+    </div>
+    	<div id="modal3" class="modal">
+    <div class="modal-content">
+      <h5>Atenção</h5>
+      <p>Sincronizado com Sucesso!</p>
+	  
+    </div>
+    
+    <div class="modal-footer">
+	  <a  class=" modal-action modal-close waves-effect waves-green btn-flat" onClick="abre_portao('abrir')">Sim</a>
+      <a  class=" modal-action modal-close waves-effect waves-green btn-flat" onClick="abre_portao('cancela')">Não</a>
+    </div>
+	</div>
+</div>
+
+ 
+	<script type="text/javascript" src="cordova.js"></script>    
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+	<script type="text/javascript" src="js/atuadores.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript">
+var url =  window.localStorage.getItem("ip");
+var chave = window.localStorage.getItem("chave");
+
+
+var rl_1 = window.localStorage.getItem("rl_1");
+var rl_2 = window.localStorage.getItem("rl_2");
+var nome = window.localStorage.getItem("nome");
+var cb_m = window.localStorage.getItem("cb");
+var cbb = window.localStorage.getItem('n_reles');
+
+//Fecha o aplicativo se clicar em voltar
+function onBackKeyDown() 
+{
+ window.location.href = "index.html";
+}
+
+document.addEventListener("deviceready", onDeviceReady, false);
+			
+function onDeviceReady() {
+	document.addEventListener("backbutton", onBackKeyDown, false);
+//	Materialize.toast("Sensores", 1000);
+	$("#bar").addClass('indeterminate');
+	url = window.localStorage.getItem("ip");
+	chave = window.localStorage.getItem("chave");
+	$("#profile").text(window.localStorage.getItem("nome"));
+	$('#ip').val(url);
+	$('#password').val(chave);
+    getTemp();
+	getGrafTop();
+	
+				
+}
+
+setInterval(function(){ 
+ if(stop == true){
+	getTemp();
+	getGrafTop();
+	}
+}, 10000);
+
+			</script>
+    <script language="javascript">
+var x, message;
+x = 50;
+message = "x is equal to ";
+document.write (nome ); // prints the value of the message variable
+document.write (cbb);
+document.write ( rl_1);
+document.write ( rl_2); //prints the value of x
+</script>
+    </body>
+  </html>

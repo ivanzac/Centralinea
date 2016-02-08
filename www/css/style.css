@@ -1,0 +1,149 @@
+
+/* Remove o efeito highlight
+=================================================================== */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+/* Cria o objeto de detecção de movimento
+=================================================================== */
+.gps_ring {
+    border: 3px solid #ff5252;
+    -webkit-border-radius: 30px;
+    height: 18px;
+    width: 18px;
+    left:20px;
+    top:214px;
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite; 
+    opacity: 0.0
+}
+
+/* Cria um teclado numerico para password
+=================================================================== */
+.password-field {
+     -webkit-text-security: disc;
+}
+
+/* cria um box model para o sensores
+=================================================================== */
+.square {	
+	height: 120px;	
+	border-radius:  5px;
+	margin: 11px;
+	position: relative;
+	left:7%;
+}
+/* box model para icones do atuadores
+=================================================================== */
+.square_icon {	
+	
+    height:37px;
+    width:37px;
+	border-radius:  8px;
+	 position: relative;
+    text-align: center
+	
+	
+}
+
+/* serve para o botão ocupar a tela toda
+=================================================================== */
+.bt_grande {		
+    width:95%;	
+}
+
+/* serve para o botão ocupar a metade da tela
+=================================================================== */
+.bt_medio {		
+    width:45%;	
+}
+
+.linha{
+  border-bottom: 1px solid gray;
+}
+/* nome dos rels
+=================================================================== */
+.name_relay{
+    font-size: 150%;
+    color: white;
+    text-align: center;
+    margin-top: 5px;
+    margin-left: 5px;
+    display: table-cell;
+    vertical-align: middle;
+	
+}
+/* nome navbar
+=================================================================== */
+.name_nav{
+	display: inline;
+    position: relative;	
+	margin-left: 10px;
+	font-size: 130%;
+    color: gray;
+}
+
+
+/* cria uma faixa transparente para o boxmodel dos sensores
+=================================================================== */
+.tag_box{
+	background: rgba(0,0,0,0.1);
+    color: rgba(255,255,255,0.9);
+    width: 100%;
+    height: 30px;
+    padding: 5px 0px;
+    border-bottom-right-radius:5px;
+	border-bottom-left-radius:5px;     
+	border-collapse: collapse;
+	text-align:center;
+	position: absolute;
+	bottom: 0px;
+	left:-1px;
+	
+}
+/* Cria uma lista para os atuadores
+=================================================================== */
+.list_decor li{
+	margin: 18px;
+
+}
+/*encaixa o icone dentro do box model dos atuadores
+=================================================================== */
+.small_icon_box{
+	color: white;
+	font-size: 150%;
+	position: absolute;   
+    left: 0;
+    right: 0;
+	top: 5%
+   
+}
+/* encaixa o icone dentro da lista do navbar
+=================================================================== */
+.menu_icon{
+
+	position: relative;
+	display: inline;
+	font-size: 170%;
+    margin-top: 15px;
+    
+	
+    
+	
+}
+/* seletor de tamanho do icone
+=================================================================== */
+.small_icon{
+	font-size: 20px;	
+}
+
+.big_icon{
+	font-size: 80px;	
+}
+
+
+@-webkit-keyframes pulsate {
+    0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
+    50% {opacity: 1.0;}
+    100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
+}
