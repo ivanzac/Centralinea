@@ -1,44 +1,12 @@
-<?xml version='1.0' encoding='utf-8'?>
-<widget id="br.com.projetoarduino.centralinadroid" version="1.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>CentralinaDroid</name>
-    <description>
-        Software para automacao residencial
-    </description>
-    <author email="projetoarduino@gmail.com.br" href="http://www.projetoarduino.com.br">
-        Tiago A. Marangoni
-    </author>
-    <content src="index.html" />
-    <plugin name="cordova-plugin-whitelist" version="1" />
-    <access origin="*" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
-    <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
-	
-	<icon src="icon.png" />
-
-	
-	<gap:platform name="winphone" />
-	     <icon src="icon.png" gap:platform=“winphone" />
-         <icon src="tileicon.png" gap:platform=“winphone" gap:role=“background” />
-              <icon src="www/res/icon/android/icon-36-ldpi.png" density="ldpi" />
-              <icon src="www/res/icon/android/icon-48-mdpi.png" density="mdpi" />
-              <icon src="www/res/icon/android/icon-72-hdpi.png" density="hdpi" />
-              <icon src="www/res/icon/android/icon-96-xhdpi.png" density="xhdpi" />
-     </platform>
-	
-    <platform name="winphone">
-        <allow-intent href="market:*" />
-    </platform>
-
-	
-
-	
-	 
-	
-	<feature name="PushNotification" >
-		<param name="android-package" value="br.projetoarduino.centralinadroid.PushPlugin"/>
-	</feature>
+<?xml version='1.0' encoding='UTF-8'?>
+<widget xmlns='http://www.w3.org/ns/widgets'>
+    <access origin='*'/>
+    <feature name='NetworkStatus'>
+        <param name='wp-package' value='NetworkStatus'/>
+    </feature>
+    <access origin='build.phonegap.com'/>
+    <access origin='s3.amazonaws.com'/>
+    <feature name='AppLoader'>
+        <param name='wp-package' value='AppLoader'/>
+    </feature>
 </widget>
